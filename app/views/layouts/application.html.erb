@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag    "application", media: "all",
-    "data-turbolinks-track" => true %>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <!-- START_HIGHLIGHT -->
 <body class='<%= controller.controller_name %>'>
 <!-- END_HIGHLIGHT -->
-<%= yield %>
+<div id="banner">
+	<%= image_tag("logo.png") %>
+	<%= @page_title || "Pragmatic Bookshelf" %>
+</div>
+<div id="columns">
+	<div id="side">
+		<ul>
+	        <li><a href="http://www...."><%= t('.home') %></a></li>
+	        <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+	        <li><a href="http://www..../news"><%= t('.news') %></a></li>
+	        <li><a href="http://www..../contact"><%= t('.contact') %></a></li>
+    	</ul>
+	</div>
+	<div id="main">
+		<%= yield %>
+		<%= Time.now.strftime("%m/%d/%Y") %>
+	</div>
+</div>
 </body>
 </html>
-
